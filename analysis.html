@@ -1,0 +1,862 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MarketMind AI — Market Analysis Dashboard</title>
+
+    <meta
+      name="description"
+      content="MarketMind AI provides technical market analysis, trend signals, indicators and AI-generated market explanations."
+    />
+
+    <meta
+      name="keywords"
+      content="MarketMind AI, stock market analysis, technical analysis, market prediction, RSI, MACD, stock dashboard"
+    />
+
+    <meta name="author" content="MarketMind AI" />
+
+    <meta name="robots" content="index, follow" />
+
+    <meta
+      property="og:title"
+      content="MarketMind AI — Market Analysis Dashboard"
+    />
+
+    <meta
+      property="og:description"
+      content="AI-powered market intelligence dashboard for technical market analysis."
+    />
+
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/svg+xml" href="assets/brand/logo.svg" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <link rel="stylesheet" href="css/tokens.css" />
+
+    <link rel="stylesheet" href="css/layout.css" />
+
+    <link rel="stylesheet" href="css/components.css" />
+
+    <link rel="stylesheet" href="css/analysis.css" />
+  </head>
+
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <a href="index.html" class="brand" aria-label="MarketMind AI home">
+            <img
+              src="assets/brand/logo.svg"
+              alt="MarketMind AI logo"
+              class="brand-logo"
+            />
+
+            <span class="brand-name"> MarketMind<span>AI</span> </span>
+          </a>
+
+          <button
+            type="button"
+            class="sidebar-close"
+            id="sidebarClose"
+            aria-label="Close navigation"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Dashboard navigation">
+          <div class="nav-section">
+            <p class="nav-label">Workspace</p>
+
+            <a href="#" class="nav-item active" data-section="dashboard">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7" rx="1" />
+                <rect x="14" y="3" width="7" height="7" rx="1" />
+                <rect x="3" y="14" width="7" height="7" rx="1" />
+                <rect x="14" y="14" width="7" height="7" rx="1" />
+              </svg>
+
+              <span> Dashboard </span>
+            </a>
+
+            <a href="#watchlist" class="nav-item" data-section="watchlist">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"
+                />
+                <path d="M4 5.5v16M8 7h8M8 11h8" />
+              </svg>
+
+              <span> Watchlist </span>
+            </a>
+
+            <a href="#analysis" class="nav-item" data-section="analysis">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 19V5" />
+                <path d="M4 19h16" />
+                <path d="m7 15 3-4 3 2 4-6" />
+              </svg>
+
+              <span> Analysis </span>
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <p class="nav-label">Account</p>
+
+            <button
+              type="button"
+              class="nav-item nav-button"
+              id="settingsButton"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
+                <path
+                  d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-1.7 1.7-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V20h-2.4v-.2a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-1.7-1.7.06-.06A1.7 1.7 0 0 0 8.4 15a1.7 1.7 0 0 0-1.56-1.03H6.6v-2.4h.24A1.7 1.7 0 0 0 8.4 10a1.7 1.7 0 0 0-.34-1.88L8 8.06l1.7-1.7.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 12.67 5.2V5h2.4v.2a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06 1.7 1.7-.06.06a1.7 1.7 0 0 0-.34 1.88A1.7 1.7 0 0 0 20.9 11h.2v2.4h-.2A1.7 1.7 0 0 0 19.4 15Z"
+                />
+              </svg>
+
+              <span> Settings </span>
+            </button>
+
+            <button type="button" class="nav-item nav-button" id="logoutButton">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 5H5v14h5" />
+                <path d="M14 8l4 4-4 4" />
+                <path d="M9 12h9" />
+              </svg>
+
+              <span> Logout </span>
+            </button>
+          </div>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="sidebar-status">
+            <span class="status-dot"></span>
+
+            <div>
+              <strong> MarketMind AI </strong>
+
+              <small> Analysis engine online </small>
+            </div>
+          </div>
+
+          <p class="sidebar-version">Version 1.0.0</p>
+        </div>
+      </aside>
+
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button
+              type="button"
+              class="menu-toggle"
+              id="sidebarToggle"
+              aria-label="Open navigation"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+
+            <div class="page-heading">
+              <span class="eyebrow"> MARKET INTELLIGENCE </span>
+
+              <h1>Analysis Dashboard</h1>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <div class="market-status">
+              <span class="status-dot"></span>
+
+              <span> MARKET DATA </span>
+            </div>
+
+            <div class="topbar-divider"></div>
+
+            <button
+              type="button"
+              class="account-button"
+              id="accountButton"
+              aria-expanded="false"
+              aria-controls="accountMenu"
+            >
+              <span class="account-avatar"> G </span>
+
+              <span class="account-info">
+                <strong id="accountName"> Guest </strong>
+
+                <small id="accountEmail"> Analysis mode </small>
+              </span>
+
+              <svg
+                class="account-chevron"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+
+            <div class="account-menu" id="accountMenu" hidden>
+              <div class="account-menu-header">
+                <span class="account-avatar large"> G </span>
+
+                <div>
+                  <strong id="accountMenuName"> Guest </strong>
+
+                  <small id="accountMenuEmail"> Analysis mode </small>
+                </div>
+              </div>
+
+              <div class="account-menu-divider"></div>
+
+              <button type="button" id="accountLogin" class="account-menu-item">
+                <span> Sign in </span>
+              </button>
+
+              <button
+                type="button"
+                id="accountLogout"
+                class="account-menu-item danger"
+              >
+                <span> Logout </span>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <section class="dashboard-content">
+          <div class="dashboard-toolbar">
+            <div class="stock-search">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" />
+                <path d="m16 16 5 5" />
+              </svg>
+
+              <input
+                type="search"
+                id="searchInput"
+                placeholder="Search stocks, symbols..."
+                autocomplete="off"
+                aria-label="Search stocks"
+              />
+
+              <span class="search-shortcut"> Enter </span>
+            </div>
+
+            <div class="toolbar-meta">
+              <span> Daily market data </span>
+
+              <span class="toolbar-dot"></span>
+
+              <span> Technical analysis </span>
+            </div>
+          </div>
+
+          <section class="market-overview" aria-label="Market overview">
+            <article class="market-card">
+              <div class="market-card-top">
+                <div>
+                  <span class="market-card-label"> NIFTY 50 </span>
+
+                  <strong class="market-card-value" id="niftyValue"> — </strong>
+                </div>
+
+                <span class="market-icon" aria-hidden="true"> N </span>
+              </div>
+
+              <div class="market-card-bottom">
+                <span class="market-change" id="niftyChange">
+                  Index data unavailable
+                </span>
+
+                <span class="market-source"> Market index </span>
+              </div>
+            </article>
+
+            <article class="market-card">
+              <div class="market-card-top">
+                <div>
+                  <span class="market-card-label"> SENSEX </span>
+
+                  <strong class="market-card-value" id="sensexValue">
+                    —
+                  </strong>
+                </div>
+
+                <span class="market-icon" aria-hidden="true"> S </span>
+              </div>
+
+              <div class="market-card-bottom">
+                <span class="market-change" id="sensexChange">
+                  Index data unavailable
+                </span>
+
+                <span class="market-source"> Market index </span>
+              </div>
+            </article>
+
+            <article class="market-card">
+              <div class="market-card-top">
+                <div>
+                  <span class="market-card-label"> MARKET VOLUME </span>
+
+                  <strong class="market-card-value" id="marketVolume">
+                    —
+                  </strong>
+                </div>
+
+                <span class="market-icon" aria-hidden="true"> V </span>
+              </div>
+
+              <div class="market-card-bottom">
+                <span class="market-change" id="marketVolumeChange">
+                  Selected stock volume
+                </span>
+
+                <span class="market-source"> Daily data </span>
+              </div>
+            </article>
+
+            <article class="market-card">
+              <div class="market-card-top">
+                <div>
+                  <span class="market-card-label"> INDIA VIX </span>
+
+                  <strong class="market-card-value" id="indiaVixValue">
+                    —
+                  </strong>
+                </div>
+
+                <span class="market-icon" aria-hidden="true"> VIX </span>
+              </div>
+
+              <div class="market-card-bottom">
+                <span class="market-change" id="indiaVixChange">
+                  Index data unavailable
+                </span>
+
+                <span class="market-source"> Volatility index </span>
+              </div>
+            </article>
+          </section>
+
+          <section class="dashboard-grid" id="analysis">
+            <article class="panel chart-panel">
+              <div class="panel-header">
+                <div class="panel-title">
+                  <div class="title-row">
+                    <h2 id="chartTitle">RELIANCE INDUSTRIES</h2>
+
+                    <span class="exchange-badge" id="chartExchange"> BSE </span>
+                  </div>
+
+                  <p id="chartSymbol">RELIANCE.BSE</p>
+                </div>
+
+                <div class="chart-controls">
+                  <button
+                    type="button"
+                    class="chart-range active"
+                    data-range="1W"
+                  >
+                    1W
+                  </button>
+
+                  <button type="button" class="chart-range" data-range="1M">
+                    1M
+                  </button>
+
+                  <button type="button" class="chart-range" data-range="3M">
+                    3M
+                  </button>
+
+                  <button type="button" class="chart-range" data-range="1Y">
+                    1Y
+                  </button>
+                </div>
+              </div>
+
+              <div class="chart-summary">
+                <div>
+                  <strong class="chart-price" id="chartPrice"> — </strong>
+
+                  <span class="chart-change" id="chartChange"> — </span>
+                </div>
+
+                <span class="chart-updated" id="chartUpdated">
+                  Waiting for market data
+                </span>
+              </div>
+
+              <div class="chart-wrapper" id="chartContainer">
+                <div class="chart-loading" id="chartLoading">
+                  <span class="loading-spinner"></span>
+
+                  <span> Loading market data... </span>
+                </div>
+
+                <div class="chart-empty" id="chartEmpty" hidden>
+                  <span> Market data unavailable </span>
+                </div>
+
+                <svg
+                  class="price-chart"
+                  id="priceChart"
+                  viewBox="0 0 1000 360"
+                  preserveAspectRatio="none"
+                  role="img"
+                  aria-label="Stock price chart"
+                >
+                  <defs>
+                    <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-opacity="0.22" />
+
+                      <stop offset="100%" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+
+                  <g class="chart-grid-lines" id="chartGridLines">
+                    <line x1="0" y1="60" x2="1000" y2="60" />
+
+                    <line x1="0" y1="130" x2="1000" y2="130" />
+
+                    <line x1="0" y1="200" x2="1000" y2="200" />
+
+                    <line x1="0" y1="270" x2="1000" y2="270" />
+                  </g>
+
+                  <path id="chartArea" class="chart-area" d=""></path>
+
+                  <path id="chartLine" class="chart-line" d=""></path>
+
+                  <circle
+                    id="chartPoint"
+                    class="chart-point"
+                    cx="0"
+                    cy="0"
+                    r="5"
+                  ></circle>
+                </svg>
+
+                <div class="chart-y-axis" id="chartYAxis">
+                  <span>—</span>
+                  <span>—</span>
+                  <span>—</span>
+                  <span>—</span>
+                  <span>—</span>
+                </div>
+
+                <div class="chart-x-axis" id="chartXAxis">
+                  <span>—</span>
+                  <span>—</span>
+                  <span>—</span>
+                  <span>—</span>
+                  <span>—</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel prediction-panel">
+              <div class="panel-header">
+                <div>
+                  <span class="panel-eyebrow"> AI SIGNAL </span>
+
+                  <h2>Market Prediction</h2>
+                </div>
+
+                <span class="prediction-live" id="predictionStatus">
+                  ANALYZING
+                </span>
+              </div>
+
+              <div class="prediction-main">
+                <div class="prediction-badge" id="predictionSignal">
+                  ANALYZING
+                </div>
+
+                <div class="prediction-confidence">
+                  <span> Confidence </span>
+
+                  <strong id="predictionConfidence"> — </strong>
+                </div>
+              </div>
+
+              <div class="confidence-bar">
+                <span id="predictionConfidenceBar" style="width: 0%"></span>
+              </div>
+
+              <div class="prediction-grid">
+                <div class="prediction-stat">
+                  <span> Horizon </span>
+
+                  <strong id="predictionHorizon"> 5 Days </strong>
+                </div>
+
+                <div class="prediction-stat">
+                  <span> Trend </span>
+
+                  <strong id="predictionTrend"> — </strong>
+                </div>
+
+                <div class="prediction-stat">
+                  <span> Signal Quality </span>
+
+                  <strong id="predictionQuality"> — </strong>
+                </div>
+
+                <div class="prediction-stat">
+                  <span> Technical Score </span>
+
+                  <strong id="predictionScore"> — </strong>
+                </div>
+              </div>
+
+              <div class="prediction-note">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+
+                  <path d="M12 10v6" />
+
+                  <circle cx="12" cy="7" r="0.8" />
+                </svg>
+
+                <p>
+                  This signal is generated from available market indicators and
+                  historical price patterns. It is informational analysis, not
+                  financial advice.
+                </p>
+              </div>
+            </article>
+
+            <article class="panel sentiment-panel">
+              <div class="panel-header">
+                <div>
+                  <span class="panel-eyebrow"> MARKET CONTEXT </span>
+
+                  <h2>Market Sentiment</h2>
+                </div>
+
+                <span class="sentiment-score" id="sentimentScore"> — </span>
+              </div>
+
+              <div class="sentiment-meter">
+                <div class="sentiment-track">
+                  <span
+                    class="sentiment-indicator"
+                    id="sentimentIndicator"
+                    style="left: 50%"
+                  ></span>
+                </div>
+
+                <div class="sentiment-labels">
+                  <span> Bearish </span>
+
+                  <span> Neutral </span>
+
+                  <span> Bullish </span>
+                </div>
+              </div>
+
+              <div class="sentiment-details">
+                <div>
+                  <span> Momentum </span>
+
+                  <strong id="sentimentMomentum"> — </strong>
+                </div>
+
+                <div>
+                  <span> Volatility </span>
+
+                  <strong id="sentimentVolatility"> — </strong>
+                </div>
+
+                <div>
+                  <span> Volume </span>
+
+                  <strong id="sentimentVolume"> — </strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel movers-panel" id="watchlist">
+              <div class="panel-header">
+                <div>
+                  <span class="panel-eyebrow"> WATCHLIST </span>
+
+                  <h2>Tracked Stocks</h2>
+                </div>
+
+                <span class="panel-count"> 4 </span>
+              </div>
+
+              <div class="watchlist-table">
+                <div class="watchlist-row watchlist-header">
+                  <span> Symbol </span>
+
+                  <span> Price </span>
+
+                  <span> Change </span>
+                </div>
+
+                <button
+                  type="button"
+                  class="watchlist-row"
+                  data-symbol="RELIANCE"
+                >
+                  <span class="stock-name">
+                    <strong> RELIANCE </strong>
+
+                    <small> Reliance Industries </small>
+                  </span>
+
+                  <strong class="watch-price" data-price-for="RELIANCE">
+                    —
+                  </strong>
+
+                  <span class="watch-change" data-change-for="RELIANCE">
+                    —
+                  </span>
+                </button>
+
+                <button type="button" class="watchlist-row" data-symbol="TCS">
+                  <span class="stock-name">
+                    <strong> TCS </strong>
+
+                    <small> Tata Consultancy Services </small>
+                  </span>
+
+                  <strong class="watch-price" data-price-for="TCS"> — </strong>
+
+                  <span class="watch-change" data-change-for="TCS"> — </span>
+                </button>
+
+                <button type="button" class="watchlist-row" data-symbol="INFY">
+                  <span class="stock-name">
+                    <strong> INFY </strong>
+
+                    <small> Infosys </small>
+                  </span>
+
+                  <strong class="watch-price" data-price-for="INFY"> — </strong>
+
+                  <span class="watch-change" data-change-for="INFY"> — </span>
+                </button>
+
+                <button
+                  type="button"
+                  class="watchlist-row"
+                  data-symbol="HDFCBANK"
+                >
+                  <span class="stock-name">
+                    <strong> HDFCBANK </strong>
+
+                    <small> HDFC Bank </small>
+                  </span>
+
+                  <strong class="watch-price" data-price-for="HDFCBANK">
+                    —
+                  </strong>
+
+                  <span class="watch-change" data-change-for="HDFCBANK">
+                    —
+                  </span>
+                </button>
+              </div>
+            </article>
+
+            <article class="panel technical-panel">
+              <div class="panel-header">
+                <div>
+                  <span class="panel-eyebrow"> TECHNICAL DATA </span>
+
+                  <h2>Technical Signals</h2>
+                </div>
+
+                <span class="panel-source"> Calculated </span>
+              </div>
+
+              <div class="technical-list">
+                <div class="technical-row">
+                  <div class="technical-name">
+                    <strong> RSI </strong>
+
+                    <span> Relative Strength Index </span>
+                  </div>
+
+                  <strong class="technical-value" id="rsiValue"> — </strong>
+
+                  <span class="technical-signal" id="rsiSignal"> — </span>
+                </div>
+
+                <div class="technical-row">
+                  <div class="technical-name">
+                    <strong> MACD </strong>
+
+                    <span> Moving Average Convergence </span>
+                  </div>
+
+                  <strong class="technical-value" id="macdValue"> — </strong>
+
+                  <span class="technical-signal" id="macdSignal"> — </span>
+                </div>
+
+                <div class="technical-row">
+                  <div class="technical-name">
+                    <strong> SMA 50 </strong>
+
+                    <span> 50-day moving average </span>
+                  </div>
+
+                  <strong class="technical-value" id="sma50Value"> — </strong>
+
+                  <span class="technical-signal" id="sma50Signal"> — </span>
+                </div>
+
+                <div class="technical-row">
+                  <div class="technical-name">
+                    <strong> Volume </strong>
+
+                    <span> Current vs average </span>
+                  </div>
+
+                  <strong class="technical-value" id="volumeValue"> — </strong>
+
+                  <span class="technical-signal" id="volumeSignal"> — </span>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel ai-panel">
+              <div class="panel-header">
+                <div>
+                  <span class="panel-eyebrow"> AI ANALYSIS </span>
+
+                  <h2>What the signals indicate</h2>
+                </div>
+
+                <span class="ai-status" id="aiStatus"> ANALYZING </span>
+              </div>
+
+              <div class="ai-analysis-content">
+                <div class="ai-heading-row">
+                  <span class="ai-pulse"></span>
+
+                  <h3 id="aiAnalysisHeading">Generating market analysis…</h3>
+                </div>
+
+                <p class="ai-analysis-text" id="aiAnalysisText">
+                  Gemini is analyzing the current market signals and technical
+                  indicators.
+                </p>
+              </div>
+
+              <div class="ai-factors">
+                <div class="ai-factor">
+                  <span class="factor-number"> 01 </span>
+
+                  <div>
+                    <strong> Price momentum </strong>
+
+                    <p id="factorMomentum">Waiting for current market data.</p>
+                  </div>
+                </div>
+
+                <div class="ai-factor">
+                  <span class="factor-number"> 02 </span>
+
+                  <div>
+                    <strong> Technical structure </strong>
+
+                    <p id="factorTechnical">
+                      Waiting for technical indicators.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="ai-factor">
+                  <span class="factor-number"> 03 </span>
+
+                  <div>
+                    <strong> Volume confirmation </strong>
+
+                    <p id="factorVolume">Waiting for volume analysis.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ai-disclaimer">
+                <span> AI </span>
+
+                <p>
+                  AI-generated explanation based on available market data. It
+                  does not guarantee future price movement and does not provide
+                  personalized financial advice.
+                </p>
+              </div>
+            </article>
+          </section>
+
+          <section class="dashboard-footer">
+            <div class="data-source">
+              <span class="source-indicator"></span>
+
+              <span>
+                Market data supplied through the configured data provider
+              </span>
+            </div>
+
+            <p>
+              MarketMind AI is an informational market-analysis tool. Signals
+              and AI explanations are not investment advice or guarantees of
+              future performance.
+            </p>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <div
+      class="toast-container"
+      id="toastContainer"
+      aria-live="polite"
+      aria-atomic="true"
+    ></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="config/environment.js"></script>
+
+    <script src="js/core/storage.js"></script>
+    <script src="js/core/ui.js"></script>
+    <script src="js/core/app.js"></script>
+
+    <script src="services/auth.service.js"></script>
+    <script src="services/market.service.js"></script>
+    <script src="services/ai.service.js"></script>
+
+    <script src="js/auth/auth.js"></script>
+
+    <script src="js/market/market.js"></script>
+    <script src="js/market/indicators.js"></script>
+    <script src="js/market/prediction.js"></script>
+
+    <script src="js/charts/charts.js"></script>
+
+    <script src="js/ai/ai.js"></script>
+
+    <script src="js/pages/analysis.js"></script>
+  </body>
+</html>

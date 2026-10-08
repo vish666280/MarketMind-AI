@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>MarketMind AI — AI-Powered Market Analysis</title>
+
+    <meta
+      name="description"
+      content="MarketMind AI analyzes market data, technical indicators and market signals to provide data-driven market predictions and insights."
+    />
+
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://YOUR-USERNAME.github.io/MarketMind/" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="MarketMind AI — AI-Powered Market Analysis"
+    />
+    <meta
+      property="og:description"
+      content="Understand the market. Predict the trend."
+    />
+    <meta
+      property="og:url"
+      content="https://YOUR-USERNAME.github.io/MarketMind/"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MarketMind AI" />
+    <meta
+      name="twitter:description"
+      content="AI-powered market analysis and prediction."
+    />
+
+    <link rel="icon" href="assets/brand/logo.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/landing.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand" aria-label="MarketMind AI home">
+          <img
+            src="assets/brand/logo.svg"
+            alt="MarketMind AI logo"
+            class="brand-logo"
+          />
+
+          <span class="brand-name"> MarketMind<span>AI</span> </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#how-it-works">How it works</a>
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+        </nav>
+
+        <div class="header-actions">
+          <button class="button button-ghost" id="loginButton">Login</button>
+
+          <a href="analysis.html" class="button button-primary">
+            Open Dashboard
+          </a>
+        </div>
+
+        <button
+          class="mobile-menu-button"
+          id="mobileMenuButton"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div class="mobile-nav" id="mobileNav">
+        <a href="#how-it-works">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+
+        <button class="button button-ghost" id="mobileLoginButton">
+          Login
+        </button>
+
+        <a href="analysis.html" class="button button-primary">
+          Open Dashboard
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <div class="eyebrow">
+              <span class="status-dot"></span>
+              AI-POWERED MARKET INTELLIGENCE
+            </div>
+
+            <h1>
+              Understand the market.
+              <span>Predict the trend.</span>
+            </h1>
+
+            <p class="hero-description">
+              MarketMind AI analyzes market data, price movement, technical
+              indicators and market signals to generate data-driven market
+              predictions.
+            </p>
+
+            <div class="hero-actions">
+              <a
+                href="analysis.html"
+                class="button button-primary button-large"
+              >
+                Explore Market Dashboard
+                <span aria-hidden="true">→</span>
+              </a>
+
+              <a
+                href="#how-it-works"
+                class="button button-secondary button-large"
+              >
+                Learn how it works
+              </a>
+            </div>
+
+            <p class="hero-disclaimer">
+              Predictions are informational and are not financial advice.
+            </p>
+          </div>
+
+          <div
+            class="hero-terminal"
+            aria-label="MarketMind AI dashboard preview"
+          >
+            <div class="terminal-topbar">
+              <div class="terminal-brand">
+                <span class="terminal-dot"></span>
+                MARKETMIND AI
+              </div>
+
+              <span class="terminal-live"> ● LIVE </span>
+            </div>
+
+            <div class="terminal-content">
+              <div class="terminal-header-row">
+                <div>
+                  <span class="terminal-label">MARKET OVERVIEW</span>
+                  <strong>Indian Market</strong>
+                </div>
+
+                <span class="terminal-time">09:42:18</span>
+              </div>
+
+              <div class="terminal-metrics">
+                <div class="terminal-metric">
+                  <span>NIFTY 50</span>
+                  <strong>24,812.35</strong>
+                  <small>+0.72%</small>
+                </div>
+
+                <div class="terminal-metric">
+                  <span>SENSEX</span>
+                  <strong>81,442.18</strong>
+                  <small>+0.54%</small>
+                </div>
+
+                <div class="terminal-metric">
+                  <span>VIX</span>
+                  <strong>13.42</strong>
+                  <small>-2.18%</small>
+                </div>
+              </div>
+
+              <div class="terminal-chart">
+                <div class="chart-grid"></div>
+
+                <svg
+                  viewBox="0 0 600 210"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <defs>
+                    <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-opacity="0.22" />
+                      <stop offset="100%" stop-opacity="0" />
+                    </linearGradient>
+                  </defs>
+
+                  <path
+                    class="chart-area"
+                    d="M0 165
+                                    L35 152
+                                    L70 158
+                                    L105 137
+                                    L140 145
+                                    L175 112
+                                    L210 121
+                                    L245 96
+                                    L280 106
+                                    L315 82
+                                    L350 91
+                                    L385 61
+                                    L420 73
+                                    L455 49
+                                    L490 57
+                                    L525 31
+                                    L560 43
+                                    L600 18
+                                    L600 210
+                                    L0 210 Z"
+                  />
+
+                  <path
+                    class="chart-line"
+                    d="M0 165
+                                    L35 152
+                                    L70 158
+                                    L105 137
+                                    L140 145
+                                    L175 112
+                                    L210 121
+                                    L245 96
+                                    L280 106
+                                    L315 82
+                                    L350 91
+                                    L385 61
+                                    L420 73
+                                    L455 49
+                                    L490 57
+                                    L525 31
+                                    L560 43
+                                    L600 18"
+                  />
+                </svg>
+              </div>
+
+              <div class="terminal-prediction">
+                <div>
+                  <span class="terminal-label"> AI MARKET SIGNAL </span>
+
+                  <strong> Bullish </strong>
+                </div>
+
+                <div class="prediction-confidence">
+                  <strong>68%</strong>
+                  <span>confidence</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-section">
+        <div class="container">
+          <div class="section-kicker">MARKET INTELLIGENCE</div>
+
+          <h2>Turn market data into understandable signals.</h2>
+
+          <p class="section-description">
+            MarketMind brings market information, technical analysis and
+            predictive signals into one focused dashboard.
+          </p>
+        </div>
+      </section>
+
+      <section class="features-section" id="features">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <span class="section-kicker">CORE CAPABILITIES</span>
+
+              <h2>Built for market analysis.</h2>
+            </div>
+
+            <p>
+              A focused analytical system designed to help users understand what
+              market data is showing.
+            </p>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="feature-number">01</div>
+
+              <h3>Market Data</h3>
+
+              <p>
+                Access structured market information including prices, volume
+                and market indices.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-number">02</div>
+
+              <h3>Technical Analysis</h3>
+
+              <p>
+                Analyze price movement using technical indicators and measurable
+                market signals.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-number">03</div>
+
+              <h3>AI Prediction</h3>
+
+              <p>
+                Combine market signals to generate directional predictions with
+                an associated confidence level.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-number">04</div>
+
+              <h3>Market Context</h3>
+
+              <p>
+                Understand the factors contributing to a market signal instead
+                of seeing a prediction alone.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="workflow-section" id="how-it-works">
+        <div class="container">
+          <div class="section-heading centered">
+            <span class="section-kicker"> HOW IT WORKS </span>
+
+            <h2>From raw data to market insight.</h2>
+
+            <p>MarketMind follows a structured analysis pipeline.</p>
+          </div>
+
+          <div class="workflow">
+            <div class="workflow-step">
+              <span>01</span>
+
+              <div>
+                <h3>Collect</h3>
+                <p>Market data is collected from connected data sources.</p>
+              </div>
+            </div>
+
+            <div class="workflow-line"></div>
+
+            <div class="workflow-step">
+              <span>02</span>
+
+              <div>
+                <h3>Analyze</h3>
+                <p>
+                  Price movement, volume and technical indicators are evaluated.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-line"></div>
+
+            <div class="workflow-step">
+              <span>03</span>
+
+              <div>
+                <h3>Predict</h3>
+                <p>
+                  The prediction engine calculates the current directional
+                  market signal.
+                </p>
+              </div>
+            </div>
+
+            <div class="workflow-line"></div>
+
+            <div class="workflow-step">
+              <span>04</span>
+
+              <div>
+                <h3>Explain</h3>
+                <p>
+                  AI converts the underlying signals into understandable
+                  analysis.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="container about-card">
+          <div>
+            <span class="section-kicker"> ABOUT MARKETMIND </span>
+
+            <h2>A market analysis system, not a trading instruction.</h2>
+          </div>
+
+          <div class="about-content">
+            <p>
+              MarketMind AI is designed to help users interpret market
+              information through data, technical signals and predictive
+              analysis.
+            </p>
+
+            <p>
+              The platform presents predictions as analytical signals rather
+              than telling users what they should buy or sell.
+            </p>
+
+            <a href="analysis.html" class="button button-primary">
+              Open Analysis Dashboard
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section">
+        <div class="container">
+          <div class="cta-card">
+            <div>
+              <span class="section-kicker"> MARKETMIND AI </span>
+
+              <h2>Start exploring the market.</h2>
+
+              <p>
+                Enter the analysis dashboard and explore market signals in one
+                place.
+              </p>
+            </div>
+
+            <a href="analysis.html" class="button button-primary button-large">
+              Open Dashboard
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <img
+              src="assets/brand/logo.svg"
+              alt="MarketMind AI logo"
+              class="brand-logo"
+            />
+
+            <span class="brand-name"> MarketMind<span>AI</span> </span>
+          </a>
+
+          <p>Understand the market. Predict the trend.</p>
+        </div>
+
+        <div class="footer-right">
+          <p>© <span id="currentYear"></span> MarketMind AI</p>
+
+          <p>Informational analysis only. Not financial advice.</p>
+        </div>
+      </div>
+    </footer>
+
+   <div class="modal" id="loginModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-modal></div>
+
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <button
+      class="modal-close"
+      id="closeLoginModal"
+      type="button"
+      aria-label="Close login"
+    >
+      ×
+    </button>
+
+    <span class="section-kicker">MARKETMIND ACCOUNT</span>
+
+    <h2>Welcome back.</h2>
+
+    <form id="loginForm">
+      <label for="loginEmail">Email</label>
+      <input
+        type="email"
+        id="loginEmail"
+        autocomplete="email"
+        required
+      />
+
+      <label for="loginPassword">Password</label>
+      <input
+        type="password"
+        id="loginPassword"
+        autocomplete="current-password"
+        required
+      />
+
+      <p id="loginMessage"></p>
+
+      <button
+        class="button button-primary"
+        id="loginSubmit"
+        type="submit"
+      >
+        Login
+      </button>
+
+      <button
+        class="button button-secondary"
+        id="signupToggle"
+        type="button"
+      >
+        Create an account
+      </button>
+    </form>
+  </div>
+</div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config/environment.js"></script>
+
+    <script src="js/core/storage.js"></script>
+    <script src="js/core/ui.js"></script>
+    <script src="js/core/app.js"></script>
+
+    <script src="services/auth.service.js"></script>
+    <script src="services/market.service.js"></script>
+    <script src="services/ai.service.js"></script>
+
+    <script src="js/auth/auth.js"></script>
+    <script src="js/market/market.js"></script>
+    <script src="js/market/indicators.js"></script>
+    <script src="js/market/prediction.js"></script>
+    <script src="js/charts/charts.js"></script>
+    <script src="js/ai/ai.js"></script>
+
+    <script src="js/pages/home.js"></script>
+  </body>
+</html>
