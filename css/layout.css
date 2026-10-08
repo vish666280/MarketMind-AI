@@ -1,0 +1,32 @@
+body {
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(124, 156, 255, 0.08),
+      transparent 30%
+    ),
+    var(--bg-primary);
+
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+.container {
+  width: min(calc(100% - 40px), var(--container-width));
+  margin-inline: auto;
+}
+
+main {
+  overflow: hidden;
+}
+
+section {
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(calc(100% - 28px), var(--container-width));
+  }
+}
